@@ -59,10 +59,7 @@ class program_execution_class:
 
     def invoke_bedrock_model(self, bedrock_client, system_prompt, max_tokens=5000):
 
-        session = boto3.Session(
-                aws_access_key_id='',
-                aws_secret_access_key='',
-            )
+        session = boto3.Session()
         bedrock_client = session.client('bedrock-runtime', region_name='us-east-1')
         
         payload = {
