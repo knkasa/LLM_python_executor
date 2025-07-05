@@ -213,6 +213,7 @@ def main():
     df = pd.read_sql(sql, conn)
     conn.close()
     print(df.head())
+    exit()
 
     program_execution_class()
     
