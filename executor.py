@@ -4,6 +4,8 @@ import subprocess
 import sys
 import pdb
 from bs4 import BeautifulSoup
+import pandas as pd
+import redshift_connector
 
 class program_execution_class:
     def __init__(self):
@@ -197,6 +199,21 @@ numpy
 """
 
 def main():
+
+    conn = redshift_connector.connect(
+        # <workgroup-name>.<account-id>.<region>.redshift-serverless.amazonaws.com
+        host='llm-executor-db.533267358966.us-east-1.redshift-serverless.amazonaws.com',
+        database='dev',
+        user=os.getenv('REDSHIFT_USER'),
+        password=os.getenv('REDSHIFT_PASSWORD'),
+        port=5439  # Default Redshift port
+        )
+    
+    sql = "SELECT * FROM passenger_gender"
+    df = pd.read_sql(sql, conn)
+    conn.close()
+    print(df.head())
+
     program_execution_class()
     
 if __name__ == "__main__":
