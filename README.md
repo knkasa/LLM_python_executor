@@ -1,30 +1,59 @@
-# Code interpreter with AWS ECS.
-This code implements a simple LLM execution pipeline using AWS managed services.
-User prompts are sent via API Gateway, processed by AWS Lambda, and executed inside an ECS Fargate container.
+# 🚀 Code Interpreter with AWS ECS
 
-There are two tables in Redshift, **users** and **interactions** table. (see /input)
-This LLM agent, deployed in Bedrock, is aware of the table, so it can answer anything about tables in DB, or make machine learning model.
+A streamlined LLM execution pipeline built on AWS managed services. User prompts flow through API Gateway, get processed by Lambda, and execute inside ECS Fargate containers for secure, scalable code interpretation.
+
+## 📊 Overview
+
+This system connects to two Redshift tables (**users** and **interactions** - see `/input`) and deploys an LLM agent in Amazon Bedrock. The agent can:
+- Query and analyze database tables
+- Build machine learning models
+- Execute complex data operations
 
 ---
-## Architecture
+
+## 🏗️ Architecture
 ```mermaid
 flowchart TD
-    Client -->|POST /prompt| APIGW[API Gateway<br/>HTTP API]
-    APIGW --> Lambda[AWS Lambda]
-    Lambda --> ECS[ECS Fargate Task]
-    ECS --> LLM[LLM / Program Execution]
+    Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
+    APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
+    Lambda --> ECS[📦 ECS Fargate Task<br/>Execution Environment]
+    ECS --> LLM[🤖 LLM / Program Execution<br/>Code Interpreter]
+    
+    style Client fill:#e1f5ff
+    style APIGW fill:#fff4e1
+    style Lambda fill:#ffe1f5
+    style ECS fill:#e1ffe1
+    style LLM fill:#f5e1ff
 ```
+
 ---
 
-## Components
+## 🔧 Components
 
 ### API Gateway
-- HTTP API
-- Endpoint: `POST /prompt`
-- Accepts JSON input
+- **Type:** HTTP API
+- **Endpoint:** `POST /prompt`
+- **Format:** JSON
 
-Example request:
+#### Example Request
 ```json
 {
   "prompt": "Please make a machine learning model from 'interaction' table."
 }
+```
+
+### AWS Lambda
+Handler function that orchestrates the execution pipeline and manages ECS task invocation.
+
+### ECS Fargate
+Containerized execution environment providing isolated, scalable compute for code interpretation and LLM operations.
+
+### Amazon Bedrock
+Hosts the LLM agent with awareness of the Redshift schema, enabling intelligent query generation and data analysis.
+
+---
+
+
+<div align="center">
+Built with ☁️ AWS | Powered by 🤖 LLM
+</div>
