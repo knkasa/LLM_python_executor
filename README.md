@@ -1,11 +1,11 @@
-# 🚀 Code Interpreter with AWS ECS
+# Code Interpreter with AWS ECS
 
 A lightweight **LLM execution pipeline** built entirely on **AWS managed services**.  
 User prompts are sent through an API endpoint, processed serverlessly, and executed inside a scalable ECS Fargate container.
 
 ---
 
-## ✨ Overview
+## Overview
 
 This project demonstrates how to:
 
@@ -22,7 +22,7 @@ The LLM understands the database schema and can:
 
 ---
 
-## 🗄️ Data Sources
+## Data Sources
 
 There are two tables stored in **Amazon Redshift** (see `/input`):
 
@@ -33,7 +33,7 @@ The LLM agent is aware of these schemas and can reason over them directly.
 
 ---
 
-## 🧩 Architecture
+## Architecture
 ```mermaid
 flowchart TD
     Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
@@ -51,7 +51,7 @@ flowchart TD
 ```
 ---
 
-## 🔧 Components
+## Components
 
 ### API Gateway
 - **Type:** HTTP API
