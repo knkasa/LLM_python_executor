@@ -28,6 +28,7 @@ class program_execution_class:
             
             try:
                 response = self.creator_engine.llm_code_creator(prompt)
+                print(response)
                 
                 python_code, requirements = self.extract_python_code(response)
                 success, stdout, stderr = self.save_and_execute_script(python_code, requirements)
@@ -197,4 +198,5 @@ numpy
 </requirements>
 
 '''
+
 
