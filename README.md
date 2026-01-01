@@ -1,59 +1,52 @@
 # 🚀 Code Interpreter with AWS ECS
 
-A streamlined LLM execution pipeline built on AWS managed services. User prompts flow through API Gateway, get processed by Lambda, and execute inside ECS Fargate containers for secure, scalable code interpretation.
-
-## 📊 Overview
-
-This system connects to two Redshift tables (**users** and **interactions** - see `/input`) and deploys an LLM agent in Amazon Bedrock. The agent can:
-- Query and analyze database tables
-- Build machine learning models
-- Execute complex data operations
+A lightweight **LLM execution pipeline** built entirely on **AWS managed services**.  
+User prompts are sent through an API endpoint, processed serverlessly, and executed inside a scalable ECS Fargate container.
 
 ---
 
-## 🏗️ Architecture
+## ✨ Overview
+
+This project demonstrates how to:
+
+- Accept user prompts via **API Gateway**
+- Orchestrate execution with **AWS Lambda**
+- Run arbitrary code or LLM-based tasks on **ECS Fargate**
+- Query and reason over **Amazon Redshift** tables using an LLM deployed on **Amazon Bedrock**
+
+The LLM understands the database schema and can:
+- Answer analytical questions about the data
+- Generate SQL queries
+- Build and execute machine learning models from the tables
+
+---
+
+## 🗄️ Data Sources
+
+There are two tables stored in **Amazon Redshift** (see `/input`):
+
+- **`users`**
+- **`interactions`**
+
+The LLM agent is aware of these schemas and can reason over them directly.
+
+---
+
+## 🧩 Architecture
+
 ```mermaid
 flowchart TD
-    Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
-    APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
-    Lambda --> ECS[📦 ECS Fargate Task<br/>Execution Environment]
-    ECS --> LLM[🤖 LLM / Program Execution<br/>Code Interpreter]
-    
-    style Client fill:#e1f5ff
-    style APIGW fill:#fff4e1
-    style Lambda fill:#ffe1f5
-    style ECS fill:#e1ffe1
-    style LLM fill:#f5e1ff
-```
+    Client -->|POST /prompt| APIGW[API Gateway<br/>HTTP API]
+    APIGW --> Lambda[AWS Lambda]
+    Lambda --> ECS[ECS Fargate Task]
+    ECS --> LLM[LLM / Program Execution]
 
 ---
 
-## 🔧 Components
-
-### API Gateway
-- **Type:** HTTP API
-- **Endpoint:** `POST /prompt`
-- **Format:** JSON
-
-#### Example Request
-```json
+## Components
+### API Gateway - HTTP API - Endpoint: POST /prompt - Accepts JSON input Example request:
+json
 {
   "prompt": "Please make a machine learning model from 'interaction' table."
 }
-```
 
-### AWS Lambda
-Handler function that orchestrates the execution pipeline and manages ECS task invocation.
-
-### ECS Fargate
-Containerized execution environment providing isolated, scalable compute for code interpretation and LLM operations.
-
-### Amazon Bedrock
-Hosts the LLM agent with awareness of the Redshift schema, enabling intelligent query generation and data analysis.
-
----
-
-
-<div align="center">
-Built with ☁️ AWS | Powered by 🤖 LLM
-</div>
