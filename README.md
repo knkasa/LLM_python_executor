@@ -6,7 +6,8 @@ User prompts are sent via API Gateway, processed by AWS Lambda, and executed ins
 
 ## Architecture
 
-```mermaid
+```
+mermaid
 flowchart TD
     Client -->|POST /prompt| APIGW[API Gateway<br/>HTTP API]
     APIGW --> Lambda[AWS Lambda]
