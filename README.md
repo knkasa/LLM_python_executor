@@ -33,14 +33,19 @@ The LLM agent is aware of these schemas and can reason over them directly.
 ---
 
 ## 🧩 Architecture
-
 ```mermaid
 flowchart TD
-    Client -->|POST /prompt| APIGW[API Gateway<br/>HTTP API]
-    APIGW --> Lambda[AWS Lambda]
-    Lambda --> ECS[ECS Fargate Task]
-    ECS --> LLM[LLM / Program Execution]
-
+    Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API GatewayHTTP API]
+    APIGW --> Lambda[⚡ AWS LambdaRequest Handler]
+    Lambda --> ECS[📦 ECS Fargate TaskExecution Environment]
+    ECS --> LLM[🤖 LLM / Program ExecutionCode Interpreter]
+    
+    style Client fill:#e1f5ff
+    style APIGW fill:#fff4e1
+    style Lambda fill:#ffe1f5
+    style ECS fill:#e1ffe1
+    style LLM fill:#f5e1ff
+```
 ---
 
 ## Components
