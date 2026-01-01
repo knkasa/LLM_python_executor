@@ -59,10 +59,16 @@ flowchart TD
 - **Format:** JSON
 
 #### Example Request
-```json
-{
-  "prompt": "Please make a machine learning model from 'interaction' table."
-}
+```
+api_gateway_url = "https://<your-API-here>/default/lambda-create-ppt"
+
+prompt = '''
+    Make a machine learning model from 'interaction' table. Use 'purchase' column for the target variable.
+    '''
+
+payload = {"prompt": prompt}
+headers = {"Content-Type": "application/json"}
+response = requests.post(api_gateway_url, json=payload, headers=headers, )  #auth=auth,)
 ```
 
 ### AWS Lambda
