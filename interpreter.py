@@ -164,7 +164,7 @@ import boto3
 #import other necessary libaries
 
 conn = redshift_connector.connect(
-    host='llm-executor-db.{os.getenv('AWS_ACCOUNT_NUM')}.us-east-1.redshift-serverless.amazonaws.com',
+    host=f'llm-executor-db.{os.getenv('AWS_ACCOUNT_NUM')}.us-east-1.redshift-serverless.amazonaws.com',
     database='dev',
     user=os.getenv('REDSHIFT_USER'),
     password=os.getenv('REDSHIFT_PASSWORD'),
@@ -197,3 +197,4 @@ numpy
 </requirements>
 
 '''
+
