@@ -5,21 +5,13 @@ User prompts are sent via API Gateway, processed by AWS Lambda, and executed ins
 ---
 
 ## Architecture
-Client
-|
-| POST /prompt
-v
-API Gateway (HTTP API)
-|
-v
-AWS Lambda
-|
-v
-ECS Fargate Task
-|
-v
-LLM / Program Execution
 
+```mermaid
+flowchart TD
+    Client -->|POST /prompt| APIGW[API Gateway (HTTP API)]
+    APIGW --> Lambda[AWS Lambda]
+    Lambda --> ECS[ECS Fargate Task]
+    ECS --> LLM[LLM / Program Execution]
 
 ---
 
@@ -35,11 +27,3 @@ Example request:
 {
   "prompt": "Which columns are float in the interaction table?"
 }
-
-.
-├── dockerfile
-├── main.py
-├── interpreter.py
-├── creator.py
-├── requirements.txt
-└── README.md
