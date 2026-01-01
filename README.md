@@ -48,10 +48,27 @@ flowchart TD
 ```
 ---
 
-## Components
-### API Gateway - HTTP API - Endpoint: POST /prompt - Accepts JSON input Example request:
-json
+## 🔧 Components
+
+### API Gateway
+- **Type:** HTTP API
+- **Endpoint:** `POST /prompt`
+- **Format:** JSON
+
+#### Example Request
+```json
 {
   "prompt": "Please make a machine learning model from 'interaction' table."
 }
+```
 
+### AWS Lambda
+Handler function that orchestrates the execution pipeline and manages ECS task invocation.
+
+### ECS Fargate
+Containerized execution environment providing isolated, scalable compute for code interpretation and LLM operations.
+
+### Amazon Bedrock
+Hosts the LLM agent with awareness of the Redshift schema, enabling intelligent query generation and data analysis.
+
+---
