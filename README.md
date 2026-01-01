@@ -34,6 +34,7 @@ The LLM agent is aware of these schemas and can reason over them directly.
 ---
 
 ## 🧩 Architecture
+```mermaid
 flowchart TD
     Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
     APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
@@ -47,6 +48,7 @@ flowchart TD
     style ECS fill:#e1ffe1
     style LLM fill:#f5e1ff
     style S3 fill:#ffe1e1
+```
 ---
 
 ## 🔧 Components
