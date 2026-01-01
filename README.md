@@ -60,7 +60,7 @@ flowchart TD
 
 #### Example Request
 ```
-api_gateway_url = "https://<your-API-here>/default/lambda-create-ppt"
+api_gateway_url = "https://<enter-API-here>/default/mbda_python_executor"
 
 prompt = '''
     Make a machine learning model from 'interaction' table. Use 'purchase' column for the target variable.
@@ -68,16 +68,7 @@ prompt = '''
 
 payload = {"prompt": prompt}
 headers = {"Content-Type": "application/json"}
-response = requests.post(api_gateway_url, json=payload, headers=headers, )  #auth=auth,)
+response = requests.post(api_gateway_url, json=payload, headers=headers)
 ```
-
-### AWS Lambda
-Handler function that orchestrates the execution pipeline and manages ECS task invocation.
-
-### ECS Fargate
-Containerized execution environment providing isolated, scalable compute for code interpretation and LLM operations.
-
-### Amazon Bedrock
-Hosts the LLM agent with awareness of the Redshift schema, enabling intelligent query generation and data analysis.
 
 ---
