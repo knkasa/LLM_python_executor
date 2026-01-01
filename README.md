@@ -2,7 +2,7 @@
 This code implements a simple LLM execution pipeline using AWS managed services.
 User prompts are sent via API Gateway, processed by AWS Lambda, and executed inside an ECS Fargate container.
 
-
+---
 
 ## Architecture
 
@@ -13,7 +13,7 @@ flowchart TD
     Lambda --> ECS[ECS Fargate Task]
     ECS --> LLM[LLM / Program Execution]
 
-
+---
 
 ## Components
 
