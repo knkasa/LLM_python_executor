@@ -13,6 +13,7 @@ This project demonstrates how to:
 - Orchestrate execution with **AWS Lambda**
 - Run arbitrary code or LLM-based tasks on **ECS Fargate**
 - Query and reason over **Amazon Redshift** tables using an LLM deployed on **Amazon Bedrock**
+- Any outputs produced by the agent is saved in **s3** (see `/results`)
 
 The LLM understands the database schema and can:
 - Answer analytical questions about the data
@@ -33,19 +34,19 @@ The LLM agent is aware of these schemas and can reason over them directly.
 ---
 
 ## 🧩 Architecture
-```mermaid
 flowchart TD
-    Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API GatewayHTTP API]
-    APIGW --> Lambda[⚡ AWS LambdaRequest Handler]
-    Lambda --> ECS[📦 ECS Fargate TaskExecution Environment]
-    ECS --> LLM[🤖 LLM / Program ExecutionCode Interpreter]
+    Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
+    APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
+    Lambda --> ECS[📦 ECS Fargate Task<br/>Execution Environment]
+    ECS --> LLM[🤖 LLM / Program Execution<br/>Code Interpreter]
+    LLM -->|Store outputs| S3[🗄️ Amazon S3<br/>Output Storage]
     
     style Client fill:#e1f5ff
     style APIGW fill:#fff4e1
     style Lambda fill:#ffe1f5
     style ECS fill:#e1ffe1
     style LLM fill:#f5e1ff
-```
+    style S3 fill:#ffe1e1
 ---
 
 ## 🔧 Components
