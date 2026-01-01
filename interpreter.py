@@ -92,7 +92,7 @@ class program_execution_class:
                 [sys.executable, python_file_name],
                 capture_output=True,
                 text=True,
-                timeout=30  # 30 second timeout
+                timeout=300  # 300 second timeout
                 )
 
             if result.stdout:
@@ -111,7 +111,7 @@ class program_execution_class:
                 return False, result.stdout, result.stderr
 
         except subprocess.TimeoutExpired:
-            print("Script execution timed out (30 seconds)")
+            print("Script execution timed out (300 seconds)")
             return False, "", "Script execution timed out"
         except KeyboardInterrupt:
             print("Execution interrupted by user")
@@ -198,5 +198,6 @@ numpy
 </requirements>
 
 '''
+
 
 
