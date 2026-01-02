@@ -1,6 +1,6 @@
 # Code Interpreter with AWS ECS
 
-A lightweight **LLM execution pipeline** built entirely on **AWS managed services**.  
+**LLM execution pipeline** built on **AWS**.  
 User prompts are sent through an API endpoint, processed serverlessly, and executed inside a scalable ECS Fargate container.
 
 ---
