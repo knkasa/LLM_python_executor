@@ -45,7 +45,7 @@ flowchart TD
     APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
     Lambda --> ECS[📦 ECS Fargate Task  <br/>Execution Environment]
     ECR -->|Pull Docker Image| ECS
-    ECS --> LLM[🤖 Agent / Program Execution  <br/>Code Interpreter]
+    ECS --> LLM[🤖 Agent / Program Execution <br/>Code Interpreter / (IAM role)<br/>]
     
     LLM -->|Fetch credentials| SM[🔐 AWS Secrets Manager<br/>DB Credentials]
     SM -.->|Return credentials| LLM
