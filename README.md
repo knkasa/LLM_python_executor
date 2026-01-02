@@ -1,6 +1,6 @@
 # Code Interpreter with AWS ECS
 
-**LLM execution pipeline** built on **AWS**.  
+**LLM based python execution pipeline** built on **AWS**.  
 User prompts are sent through an API endpoint, processed serverlessly, and executed inside a scalable ECS Fargate container.
 
 ---
@@ -11,11 +11,11 @@ This project demonstrates how to:
 
 - Accept user prompts via **API Gateway**
 - Orchestrate execution with **AWS Lambda**
-- Run arbitrary code or LLM-based tasks on **ECS Fargate**
+- Run arbitrary python code on **ECS Fargate**
 - Query and reason over **Amazon Redshift** tables using an LLM deployed on **Amazon Bedrock**
 - Any outputs produced by the agent is saved in **s3** (see `/results`)
 
-The LLM understands the database schema and can:
+The agent understands the database schema and can:
 - Answer analytical questions about the data
 - Generate SQL queries
 - Build and execute machine learning models from the tables
