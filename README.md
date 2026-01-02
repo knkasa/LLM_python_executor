@@ -12,7 +12,7 @@ This project demonstrates how to:
 - Accept user prompts via **API Gateway**
 - Orchestrate execution with **AWS Lambda**
 - Run arbitrary python code on **ECS Fargate**
-- Query and reason over **Amazon Redshift** tables using an LLM deployed on **Amazon Bedrock**
+- Query and reason over **Amazon Redshift** tables using an agent deployed on **Amazon Bedrock**
 - Any outputs produced by the agent is saved in **s3** (see `/results`)
 
 The agent understands the database schema and can:
