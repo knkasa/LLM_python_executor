@@ -1,5 +1,5 @@
 import os
-from interpreter import program_execution_class
+from src.interpreter import program_execution_class
 
 def main():
     #user_prompt = '''
@@ -20,3 +20,4 @@ def main():
     
 if __name__ == "__main__":
     main()
+
