@@ -43,9 +43,9 @@ flowchart TD
     
     Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
     APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
-    Lambda --> ECS[📦 ECS Fargate Task  <br/>Execution Environment]
+    Lambda --> ECS[📦 ECS Fargate Task / IAM role  <br/>Execution Environment]
     ECR -->|Pull Docker Image| ECS
-    ECS --> LLM[🤖 Agent / Program Execution <br/>Code Interpreter / (IAM role)<br/>]
+    ECS --> LLM[🤖 Agent / Program Execution <br/>Code Interpreter]
     
     LLM -->|Fetch credentials| SM[🔐 AWS Secrets Manager<br/>DB Credentials]
     SM -.->|Return credentials| LLM
