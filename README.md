@@ -43,9 +43,7 @@ flowchart TD
     
     Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
     APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
-    LambdaRole[🔑 IAM Role<br/>ECS role] -.->|Permissions| Lambda
     Lambda --> ECS[📦 ECS Fargate Task<br/>Execution Environment]
-    ECSRole[🔑 IAM Role<br/>Redshift, s3, Bedrock Role] -.->|Permissions| ECS
     ECR -->|Pull Docker Image| ECS
     ECS --> LLM[🤖 Agent / Program Execution<br/>Code Interpreter]
     
@@ -62,9 +60,7 @@ flowchart TD
     style Client fill:#e1f5ff
     style APIGW fill:#fff4e1
     style Lambda fill:#ffe1f5
-    style LambdaRole fill:#fff9e1
     style ECS fill:#e1ffe1
-    style ECSRole fill:#fff9e1
     style LLM fill:#f5e1ff
     style SM fill:#ffe8e1
     style Redshift fill:#e8e1ff
