@@ -20,7 +20,7 @@ The agent understands the database schema and can:
 - Generate SQL queries
 - Build and execute machine learning models from the tables
 
-The github repo is connected to the **CodePipeline** that will automatically docker image and store it in **ECR**.
+The github repo is connected to the **CodePipeline** that will automatically create docker image and store it in **ECR**.
 
 ---
 
