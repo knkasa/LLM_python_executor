@@ -39,7 +39,7 @@ flowchart TD
     Client([👤 Client]) -->|POST /prompt| APIGW[🌐 API Gateway<br/>HTTP API]
     APIGW --> Lambda[⚡ AWS Lambda<br/>Request Handler]
     Lambda --> ECS[📦 ECS Fargate Task<br/>Execution Environment]
-    ECS --> LLM[🤖 LLM / Program Execution<br/>Code Interpreter]
+    ECS --> LLM[🤖 Agent / Program Execution<br/>Code Interpreter]
     LLM -->|Store outputs| S3[🗄️ Amazon S3<br/>Output Storage]
     
     style Client fill:#e1f5ff
