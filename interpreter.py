@@ -12,10 +12,10 @@ class program_execution_class:
                 
         success, final_code, final_requirements, attempts_used = self.auto_fix_and_execute(
             user_prompt, 
-            max_attempts=5
+            max_attempts=10
             )
         
-    def auto_fix_and_execute(self, user_prompt:str, max_attempts=5):
+    def auto_fix_and_execute(self, user_prompt:str, max_attempts=10):
         """Automatically generate, execute, and fix code until it succeeds."""
 
         # Initial prompt.
@@ -198,6 +198,7 @@ numpy
 </requirements>
 
 '''
+
 
 
 
