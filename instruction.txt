@@ -4,7 +4,8 @@
 3. Go to github, upload dockerfile, executor.py, requirements.txt
 4. Upload image to ECR by setting up codepipeline. Make sure to check "Full clone".
 5. Setup ECS fargate task definition. (under Task role)Add bedrock & redshift permission & s3 policy.
-   Add environment variable defined in lambda function
+   Add environment variable defined in lambda function.
+   Create cluster, and attach task. (Note: If you want to monitor resource usage, check "Container Insights")
 6. Run ECS to check if ok
 7. Create Redshift DB. (user=admin_user) 
   Load CSV(you need to set s3 for backup. click gear/acount settings from lower left, add s3 uri)
@@ -95,3 +96,4 @@ def lambda_handler(event, context):
             'statusCode': 500,
             'body': json.dumps('Internal Server Error')
             }
+
