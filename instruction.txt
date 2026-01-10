@@ -1,6 +1,6 @@
 1. Create python file that can accept user prompt and run script.
 2. Go to AWS, create lambda function. Make sure to attach ECS(go to configuration/permission->click the role name)
-   Provide security group & subnet as environment variable. (Note security group & subnet should be in same VPC)
+   Provide security group & subnet as environment variable. (Note security group & subnet should be in same VPC.  Also, Redshift security group & subnets should be same)
 3. Go to github, upload dockerfile, executor.py, requirements.txt
 4. Upload image to ECR by setting up codepipeline. Make sure to check "Full clone".
 5. Setup ECS fargate task definition. (under Task role)Add bedrock & redshift permission & s3 policy.
@@ -96,6 +96,7 @@ def lambda_handler(event, context):
             'statusCode': 500,
             'body': json.dumps('Internal Server Error')
             }
+
 
 
 
